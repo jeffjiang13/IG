@@ -11,7 +11,8 @@ function Stories() {
     const suggestions = [...Array(20)].map((_, i) => ({
       userId: faker.datatype.uuid(),
       username: faker.internet.userName(),
-      avatar: faker.image.avatar(),      id: i,
+      avatar: faker.image.avatar(),
+      id: i,
     }));
 
     setSuggestions(suggestions);
