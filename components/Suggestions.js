@@ -5,7 +5,9 @@ function Suggestions() {
 
   useEffect(() => {
     const suggestions = [...Array(5)].map((_, i) => ({
-      ...faker.helpers.contextualCard(),
+      userId: faker.datatype.uuid(),
+      username: faker.internet.userName(),
+      avatar: faker.image.avatar(),
       id: i,
     }));
 
