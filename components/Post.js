@@ -24,7 +24,7 @@ import { useEffect, useRef, useState } from "react";
 import Moment from "react-moment";
 import { db } from "../firebase";
 
-function Post({ id, username, userImg, img, caption }) {
+function Post({ id, username, userImage, img, caption }) {
 
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
@@ -68,7 +68,7 @@ function Post({ id, username, userImg, img, caption }) {
     await addDoc(collection(db, "posts", id, "comments"), {
       comment: commentToSend,
       username: session?.user?.username,
-      userImg: session?.user?.image,
+      userImage: session?.user?.image,
 
       timestamp: serverTimestamp(),
     });
@@ -89,7 +89,7 @@ function Post({ id, username, userImg, img, caption }) {
       {/* Header */}
       <div className="flex items-center p-5">
         <img
-          src={userImg ? userImg : "/favicon.ico"} // Use a default profile picture if the `userImg` field is empty
+          src={userImage ? userImage : "/favicon.ico"}
           className="rounded-full h-12 w-12 object-contain border p-1 mr-3"
           alt=""
         />
