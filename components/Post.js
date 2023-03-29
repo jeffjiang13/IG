@@ -66,17 +66,17 @@ function Post({ id, username, userImg, img, caption }) {
 
     await addDoc(collection(db, "posts", id, "comments"), {
       comment: commentToSend,
-      username: session?.user?.username,
-      userImage: session?.user?.image,
+      username: session.user.username,
+      userImage: session.user.image,
       timestamp: serverTimestamp(),
     });
   };
 
   const likePost = async () => {
     if (hasLiked) {
-      await deleteDoc(doc(db, "posts", id, "likes", session?.user?.uid));
+      await deleteDoc(doc(db, "posts", id, "likes", session.user.uid));
     } else {
-      await setDoc(doc(db, "posts", id, "likes", session?.user?.uid), {
+      await setDoc(doc(db, "posts", id, "likes", session.user.uid), {
         username: session.user.username,
       });
     }
