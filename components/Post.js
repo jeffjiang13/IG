@@ -25,6 +25,8 @@ import Moment from "react-moment";
 import { db } from "../firebase";
 
 function Post({ id, username, userImg, img, caption }) {
+  console.log("User Image URL:", userImg); // Add this line
+
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState([]);
