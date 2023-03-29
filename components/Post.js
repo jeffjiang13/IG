@@ -68,8 +68,7 @@ function Post({ id, username, userImg, img, caption }) {
     await addDoc(collection(db, "posts", id, "comments"), {
       comment: commentToSend,
       username: session?.user?.username,
-      userImage: session?.user?.image,
-      userImage: session.user.image, // Make sure the userImage field has a value
+      userImg: session?.user?.image,
 
       timestamp: serverTimestamp(),
     });
